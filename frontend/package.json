@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.79",
+    "process": "^0.11.10",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },
