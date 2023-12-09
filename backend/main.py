@@ -3,43 +3,35 @@ import numpy as np
 import pandas as pd
 import os
 import json
-import random
+from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+import keras
 
-with open('training data.json', 'r') as file:
+# Load your training data
+with open('./training_data/landslide_training_data.json', 'r') as file:
     training_data = json.load(file)
 
 df = pd.DataFrame(training_data)
 
-df = df.sample(frac=1).reset_index(drop=True)
+# Separate features and target variable
+X = df[['precipitation', 'rain_intensity', 'soil_moisture', 'wind_speed', 'relative_humidity', 'temp_disparity', 'temperature', 'evapotranspiration']].values
+y = df['is_landslide'].values
 
-features = df.drop(['precipitation', 'rain_intensity', 'soil_moisture', 'wind_speed', 'relative_humidity', 'temp_disparity', 'temperature', 'evapotranspiration'], axis=1).values
-target = df['chance'].values
+# Normalize features using the mean and std from the entire dataset
+X_normalized = (X - np.mean(X, axis=0)) / np.std(X, axis=0)
 
-features = tf.constant(features, dtype=tf.float32)
-target = tf.constant(target, dtype=tf.float32)
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X_normalized, y, test_size=0.3, random_state=42)
 
-W = tf.Variable(tf.random.normal([8]))
-b = tf.Variable(tf.random.normal([1]))
+# Define and train the model with more complex architecture
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(32, input_shape=(8,), activation='relu'),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(1, activation='linear')
+])
 
-def linear_regression(x):
-    return W * x + b
+model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.001), loss='mse', metrics=["accuracy"])
 
-def mean_square(y_pred, y_true):
-    return tf.reduce_mean(tf.square(y_pred - y_true))
+model.fit(X_train, y_train, epochs=3000, verbose=1)
 
-optimizer = tf.optimizers.SGD(learning_rate=0.01)
-
-for i in range(1000):
-    with tf.GradientTape() as tape:
-        y_pred = linear_regression(features)
-        loss = mean_square(y_pred, target)
-    gradients = tape.gradient(loss, [W, b])
-    optimizer.apply_gradients(zip(gradients, [W, b]))
-
-print(f'W = {W.numpy()}, b = {b.numpy()}')
-
-plt.plot(features, target, 'ro', label='Original data')
-plt.plot(features, np.array(W * features + b), label='Fitted line')
-plt.legend()
-plt.show()
+keras.models.save_model(model, filepath="./models/landslide.keros")
