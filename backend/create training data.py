@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-import random
 import json
  
 training_data = [{}]
