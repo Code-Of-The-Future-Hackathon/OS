@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 absl-py==2.0.0
 aiohttp==3.9.1
 aiosignal==1.3.1
@@ -65,7 +64,6 @@ urllib3==2.1.0
 Werkzeug==3.0.1
 wrapt==1.14.1
 yarl==1.9.4
-=======
 absl-py==2.0.0
 aiohttp==3.9.1
 aiosignal==1.3.1
@@ -132,4 +130,3 @@ urllib3==2.1.0
 Werkzeug==3.0.1
 wrapt==1.14.1
 yarl==1.9.4
->>>>>>> 71879d3 (Add create landslide data)

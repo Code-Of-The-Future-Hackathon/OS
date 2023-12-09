@@ -1,7 +1,7 @@
 import random
 import json
  
-training_data = [{}]
+training_data = []
 
 for i in range(12000):
     training_data.append({})
