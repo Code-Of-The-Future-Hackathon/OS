@@ -28,3 +28,5 @@ yarn.lock
 venv/
 .venv/
 .cache.sqlite
+
+backend/training_data/*.json
