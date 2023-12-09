@@ -25,3 +25,6 @@ dist-ssr
 
 yarn.lock
 .env
+venv/
+
+.cache.sqlite
