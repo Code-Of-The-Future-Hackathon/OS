@@ -9,6 +9,5 @@ export default defineConfig({
       "@fawmi/vue-google-maps",
       "fast-deep-equal",
     ],
-  },
-  base: import.meta.env.BASE_URL,
+  }
 })
