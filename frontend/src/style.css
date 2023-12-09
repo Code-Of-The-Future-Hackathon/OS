@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Candal&family=Roboto:wght@100;400;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: Candal, sans-serif;
+}
