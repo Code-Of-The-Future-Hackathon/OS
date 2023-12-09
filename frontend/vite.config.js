@@ -10,4 +10,5 @@ export default defineConfig({
       "fast-deep-equal",
     ],
   },
+  base: import.meta.env.BASE_URL,
 })
