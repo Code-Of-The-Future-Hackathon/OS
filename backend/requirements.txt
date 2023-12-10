@@ -77,9 +77,6 @@ starlette==0.27.0
 tensorboard==2.15.1
 tensorboard-data-server==0.7.2
 tensorflow==2.15.0
-tensorflow-estimator==2.15.0
-tensorflow-intel==2.15.0
-tensorflow-io-gcs-filesystem==0.31.0
 termcolor==2.4.0
 thinc==8.2.1
 tqdm==4.66.1
