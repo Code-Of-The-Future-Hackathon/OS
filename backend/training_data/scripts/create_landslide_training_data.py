@@ -43,5 +43,5 @@ for i in range(12000):
         training_data[i]['is_landslide'] = False
         
 
-with open("./training_data/landslide_training_data.json", 'w') as file:
+with open("../landslide_training_data.json", 'w') as file:
     json.dump(training_data, file, indent=4)    
