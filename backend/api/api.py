@@ -6,7 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "https://happy-field-07211a803.4.azurestaticapps.net/"
+    "https://happy-field-07211a803.4.azurestaticapps.net/",
+    "http://localhost:5173",
 ]
 
 app.add_middleware(
