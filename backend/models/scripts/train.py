@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import keras
 
 # Load your training data
-with open('../../training_data/data.json', 'r') as file:
+with open('../../training_data/drought_training_data.json', 'r') as file:
     training_data = json.load(file)
 
 df = pd.DataFrame(training_data)
