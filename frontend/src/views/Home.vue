@@ -2,7 +2,7 @@
 <template>
     <div class="h-screen w-screen flex flex-col justify-center items-center relative">
         <div class="left-0 top-0 absolute z-[-1] after:content-[''] after:w-full after:h-full after:absolute after:bg-[#00000070] after:z-10 after:top-0 after:left-0">
-            <video src="/public/landing-video.mp4" loop autoplay muted class="w-screen"></video>
+            <video src="../assets/landing-video.mp4" loop autoplay muted class="w-screen"></video>
         </div>
 
         <div class="flex items-center flex-col gap-4 w-1/2 text-white">
