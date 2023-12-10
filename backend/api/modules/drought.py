@@ -10,7 +10,7 @@ class Model:
     ])
 
     def __init__(self):
-        self.model = tf.keras.models.load_model("./models/testing.keras")
+        self.model = tf.keras.models.load_model("./models/drought.keras")
 
     def predict(self, data: dict):
         # Convert data to numpy array
@@ -21,8 +21,6 @@ class Model:
 
         # Convert prediction to a list
         prediction = prediction.tolist()
-
-        print(f"\n\nprediction = {prediction}\n\n"  )
 
         # Return prediction
         return prediction

@@ -13,15 +13,14 @@ import keras
 
 class Model:
     def __init__(self):
-        self.model = keras.models.load_model("./models/landslide.keros")
+        self.model = keras.models.load_model("./models/landslide.keras")
 
     def predict(self, data: dict):
         # Convert data to numpy array
         dataL = np.array(list(data.values()))
 
-        # Predict
-        print(dataL)
-        prediction = self.model.predict(dataL)
+        # Predict        
+        prediction = self.model.predict(tf.expand_dims(dataL, axis=0), verbose=1)
 
         # Convert prediction to a list
         prediction = prediction.tolist()

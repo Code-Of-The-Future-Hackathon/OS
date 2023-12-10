@@ -1,19 +1,23 @@
 import numpy as np
-import tensorflow as tf
 from fastapi import APIRouter
+import tensorflow as tf
 
 class Model:
-    model: tf.keras.Model = None
+    model: tf.keras.Model = tf.keras.models.Sequential([
+        tf.keras.layers.Dense(64, activation='relu', input_shape=(1,)),
+        tf.keras.layers.Dense(64, activation='relu'),
+        tf.keras.layers.Dense(1)
+    ])
 
     def __init__(self):
-        self.model = tf.saved_model.load("./models/wildfire.keros")
+        self.model = tf.keras.models.load_model("./models/wildfire.keras")
 
     def predict(self, data: dict):
         # Convert data to numpy array
-        data = np.array([data["data"]])
+        dataL = np.array(list(data.values()))
 
         # Predict
-        prediction = self.model.predict(data)
+        prediction = self.model.predict(tf.expand_dims(dataL, axis=0), verbose=1)
 
         # Convert prediction to a list
         prediction = prediction.tolist()
