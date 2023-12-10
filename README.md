@@ -15,7 +15,7 @@
 ## 📃 Documentation <a name="docs"></a>
 
 ### Presentation
-[Presentation](https://github.com/MVKoleva21/TBA/blob/main/docs/TBA%20-%20Presentation.pptx)
+[Presentation](https://github.com/Code-Of-The-Future-Hackathon/OS/blob/docs/presentation/OS%20-%20Presentation.pptx)
 
 ## 🖥️ Technologies used <a name="technologies"></a>
 ### IDE & version control system:
